@@ -1,16 +1,29 @@
-print("this is the start of pykalc!")
+#Bring in the basic math functions that are in basicmath.py and nickname that file as bmath
 
-#This is a Python comment
-#There are no { } blocks in Python.  Instead you space over
-#4 spaces when you need to indicate a body.  Notice that I am
-#defining a function called printout.  The definition ends with a :
-#indicating that a code suite (you can think of it as a block) is
-#coming up next.  I space each line in the suite over 4 spaces -- do
-#not use a tab!  That can mess things up.  You have to be consistent
-#in the number of spaces.  4 is what Guido von Rossum, Python's inventor
-#uses as the de facto standard.
+import basicmath as bmath
 
-def printAnswers(s):
+#This function from the old pykalk.py still prints our answer out
+def printAnswer(s):
     print(s)
 
-printAnswers("5 + 7 = 12")
+#Get the data from the user
+print("Please enter your first number: ")
+num1 = float(input())
+print("Please enter your operation [+ - * /]: ")
+oper = input()
+print("Please enter your second number: ")
+num2 = float(input())
+
+#Dispath whatever basic math function is desired
+if(oper == "+"):
+    ans = bmath.doAdd(num1, num2)
+if(oper == "-"):
+    ans = bmath.doSub(num1, num2)
+if(oper == "*"):
+    ans = bmath.doMul(num1, num2)
+if(oper == "/"):
+    ans = bmath.doDivide(num1, num2)
+
+#Print the answer out
+print(" ")
+printAnswer("{0} {1} {2} = {3:.3f}".format(num1, oper, num2, ans))
